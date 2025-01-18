@@ -1,0 +1,45 @@
+from openai import OpenAI
+import os
+
+modelGPT = "gpt-3.5-turbo"
+#modelGPT = "gpt-4o-mini"
+
+#obfuscated API Key
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+OpenAI.api_key = os.environ.get("OPENAI_API_KEY")
+
+# Send message to chat GPT
+#stream = client.chat.completions.create(
+stream = client.chat.completions.create(
+    model = modelGPT,
+    messages=[
+        {"role": "user", "content": "Tell me that story again"}
+    ],
+    stream = True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content or "", end="")
+
+# process stream response
+#for chunk in stream:
+    # Print the entire chunk to understand its structure
+    #print("Chunk received:", chunk)
+    
+    # Ensure 'choices' exists and is not empty
+    #if 'choices' in chunk and len(chunk['choices']) > 0:
+        #choice = chunk['choices'][0]
+        #print("Choice object:", choice)
+        
+        # Access and print the delta content
+        #delta = choice.get('delta', {})
+        #content = delta.get('content', '')
+        #if content:
+            #print(content, end='')  # Print the content as it arrives
+    #else:
+        #print("No choices found in chunk.")
+
+#print("done")
