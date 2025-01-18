@@ -1,3 +1,6 @@
 .env
 __pycache__/
 *.pyc
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINKGOsCcKsJcKu10+4xMzS5B5+6k1ol50Zome7ILmzfK Lifehaslemonz@gmail.com
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZa9mtzU17GN9avbFs8OufN0Be/SNCnYB4z92Xbs4Kq lifehaslemonz@gmail.com

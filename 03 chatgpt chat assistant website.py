@@ -1,8 +1,10 @@
 import openai
 import gradio
 
-openai.api_key = "####"
-
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
 messages = [{"role": "system", "content": "You are a financial experts that specializes in real estate investment and negotiation"}]
 
 def CustomChatGPT(user_input):
@@ -18,3 +20,4 @@ def CustomChatGPT(user_input):
 demo = gradio.Interface(fn=CustomChatGPT, inputs = "text", outputs = "text", title = "Real Estate Pro")
 
 demo.launch(share=True)
+
